@@ -17,6 +17,7 @@ using namespace std;
 
 namespace khronos {
 
+
 	/**	Jd default constructor.  Initialize to the current local time. */
 	Jd::Jd()
 		: jd_(0)
@@ -33,9 +34,33 @@ namespace khronos {
 			second_t(tmNow.tm_sec)
 		);
 	}
+
+	Jd::Jd(has_time_of_day status)
+	{
+		if (status == 0){
+			time_t nowTime = time(NULL);
+			struct tm tmNow;
+			localtime_s(&tmNow, &nowTime);
+			jd_ = gregorian_to_jd(
+				tmNow.tm_year + 1900,
+				month_t(tmNow.tm_mon + 1),
+				day_t(tmNow.tm_mday)
+			);
+		}else if (status == 1) {
+			time_t nowTime = time(NULL);
+			struct tm tmNow;
+			localtime_s(&tmNow, &nowTime);
+			jd_ = gregorian_to_jd(
+				tmNow.tm_year + 1900,
+				month_t(tmNow.tm_mon + 1),
+				day_t(tmNow.tm_mday),
+				hour_t(tmNow.tm_hour),
+				minute_t(tmNow.tm_min),
+				second_t(tmNow.tm_sec)
+			);
+		}
+	}
 	
-
-
 
 	/** Print the Julian Day as a string. */
 	std::string Jd::to_string() const {

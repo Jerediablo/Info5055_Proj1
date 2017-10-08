@@ -25,4 +25,6 @@ namespace khronos {
 	long constexpr SECONDS_PER_DAY = 86'400;
 	double constexpr EARTH_ORBITAL_PERIOD_DAYS = 365.256'363'004;
 	jd_t constexpr GREGORIAN_EPOCH = 1'721'425.5;
+
+	enum has_time_of_day { NOTIMEOFDAY, WTIMEOFDAY };
 }

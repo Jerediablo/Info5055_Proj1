@@ -64,11 +64,16 @@ namespace khronos {
 		year_t		year_ = 1;
 		month_t		month_ = 1;
 		day_t		day_ = 1;
+		hour_t		hour_ = 1;
+		minute_t	minute_ = 1;
+		second_t	second_ = 1;
 
-		void from_jd(jd_t jd) { jd_to_gregorian(jd, year_, month_, day_); }
-		jd_t to_jd() const { return gregorian_to_jd(year_, month_, day_); }
+		void from_jd(jd_t jd) { jd_to_gregorian(jd, year_, month_, day_, hour_, minute_, second_); }
+		jd_t to_jd() const { return gregorian_to_jd(year_, month_, day_, hour_, minute_, second_); }
 	public:
 		Gregorian();
+
+		Gregorian(has_time_of_day status);
 
 		/** Get the year.
 		@return Astronomical year. */
@@ -84,6 +89,12 @@ namespace khronos {
 		@return Day of month number [1..31]. */
 		day_t   day() const { return day_; }
 
+		hour_t  hour() const { return hour_; }
+
+		minute_t	minute() const { return minute_; }
+
+		second_t	 second() const { return second_; }
+
 		/** Construct a Gregorian calendar date from year,month,day,[hour,minute,second]
 		@param year [in] Astronomical year.
 		@param month [in] Month number [1..12]
@@ -94,6 +105,8 @@ namespace khronos {
 		*/
 		Gregorian(year_t year, month_t month, day_t day) : year_(year), month_(month), day_(day) {}
 
+		Gregorian(year_t year, month_t month, day_t day, hour_t hour, minute_t minute, second_t second) :
+			year_(year), month_(month), day_(day), hour_(hour), minute_(minute), second_(second) {}
 
 		/** Construct a Gregorian date from Julian Day Number object.
 		@param jd [in] Jd object.

@@ -26,6 +26,7 @@ namespace khronos {
 	}
 
 	/**	Gregorian default constructor.  Initialize to the current local time. */
+
 	Gregorian::Gregorian() {
 		time_t nowTime = time(NULL);
 		struct tm tmNow;
@@ -33,8 +34,34 @@ namespace khronos {
 		year_ = year_t(tmNow.tm_year + 1900);
 		month_ = month_t(tmNow.tm_mon + 1);
 		day_ = day_t(tmNow.tm_mday);
+		hour_ = hour_t(tmNow.tm_hour);
+		minute_ = minute_t(tmNow.tm_min);
+		second_ = second_t(tmNow.tm_sec);
 	}
 
+	Gregorian::Gregorian(has_time_of_day status)
+	{
+		if (status == 0) {
+			time_t nowTime = time(NULL);
+			struct tm tmNow;
+			localtime_s(&tmNow, &nowTime);
+			year_ = tmNow.tm_year + 1900;
+			month_ = (tmNow.tm_mon + 1);
+			day_ = (tmNow.tm_mday);
+		}
+		else if (status == 1) {
+			time_t nowTime = time(NULL);
+			struct tm tmNow;
+			localtime_s(&tmNow, &nowTime);
+			year_ = tmNow.tm_year + 1900;
+			month_ = (tmNow.tm_mon + 1);
+			day_ = (tmNow.tm_mday);
+			hour_ = (tmNow.tm_hour);
+			minute_ = (tmNow.tm_min);
+			second_ = (tmNow.tm_sec);
+			
+		}
+	}
 
 
 	/** Print the Gregorian Date as a string. */

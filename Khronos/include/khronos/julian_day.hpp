@@ -9,6 +9,9 @@
 
 namespace khronos {
 
+
+
+
 	/** Convert a Julian date to a Julian day number. */
 	inline jdn_t jd_to_jdn(jd_t jd) {
 		return static_cast<jdn_t>(floor(jd + 0.5));
@@ -22,6 +25,8 @@ namespace khronos {
 		jd_t	jd_;
 	public:
 		Jd();
+
+		Jd(has_time_of_day status);
 
 		/**	Constructor from real number. */
 		Jd(jd_t jd) : jd_(jd) { }
