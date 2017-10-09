@@ -64,9 +64,9 @@ namespace khronos {
 		year_t		year_ = 1;
 		month_t		month_ = 1;
 		day_t		day_ = 1;
-		hour_t		hour_ = 1;
-		minute_t	minute_ = 1;
-		second_t	second_ = 1;
+		hour_t		hour_ = 0;
+		minute_t	minute_ = 0;
+		second_t	second_ = 0;
 
 		void from_jd(jd_t jd) { jd_to_gregorian(jd, year_, month_, day_, hour_, minute_, second_); }
 		jd_t to_jd() const { return gregorian_to_jd(year_, month_, day_, hour_, minute_, second_); }
