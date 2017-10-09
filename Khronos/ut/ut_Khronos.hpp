@@ -18,7 +18,7 @@
 
 
 // set 'TEST_PHASES' to the maximum test phase attempted
-#define TEST_PHASES 26
+#define TEST_PHASES 42
 
 
 // set 'PHASE_dd' to 'false' for any test phase you wish to skip
@@ -50,24 +50,24 @@
 #define PHASE_24 true
 #define PHASE_25 true
 #define PHASE_26 true
-#define PHASE_27 false
-#define PHASE_28 false
-#define PHASE_29 false
+#define PHASE_27 true
+#define PHASE_28 true
+#define PHASE_29 true
 
-#define PHASE_30 false
-#define PHASE_31 false
-#define PHASE_32 false
-#define PHASE_33 false
-#define PHASE_34 false
-#define PHASE_35 false
-#define PHASE_36 false
-#define PHASE_37 false
-#define PHASE_38 false
-#define PHASE_39 false
+#define PHASE_30 true
+#define PHASE_31 true
+#define PHASE_32 true
+#define PHASE_33 true
+#define PHASE_34 true
+#define PHASE_35 true
+#define PHASE_36 true
+#define PHASE_37 true
+#define PHASE_38 true
+#define PHASE_39 true
 
-#define PHASE_40 false
-#define PHASE_41 false
-#define PHASE_42 false
+#define PHASE_40 true
+#define PHASE_41 true
+#define PHASE_42 true
 #define PHASE_43 false
 #define PHASE_44 false
 #define PHASE_45 false

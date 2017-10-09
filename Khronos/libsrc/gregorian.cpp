@@ -73,10 +73,28 @@ namespace khronos {
 
 		oss << gregorian_month_name(month_) << ' ' << (unsigned)day_ << ' ';
 		if (year_ <= 0)
-			oss << (-year_ + 1) << " BCE";
+			oss << (-year_ + 1) << " BCE, ";
 		else
-			oss << year_ << " CE";
+			oss << year_ << " CE, ";
 
+		if (hour_ >= 12) {
+			if (hour_ > 12)
+				oss << hour_ - 12;
+			else
+				oss << hour_;
+			oss << ":" << std::setfill('0') << std::setw(2) << minute_;
+			oss << ":" << std::setfill('0') << std::setw(2) << second_;
+			oss << " pm";
+		}
+		else {
+			if (hour_ == 0) 
+				oss << "12";
+			else
+				oss << hour_;
+			oss << ":" << std::setfill('0') << std::setw(2) << minute_;
+			oss << ":" << std::setfill('0') << std::setw(2) << second_;
+			oss << " am";
+		}
 		return oss.str();
 	}
 
@@ -88,10 +106,14 @@ namespace khronos {
 		month_t m = dt.month();
 		day_t d = dt.day();
 
+		hour_t hour = dt.hour();
+		minute_t minute = dt.minute();
+		second_t second = dt.second();
+
 		if (m == February && d == 29 && !is_gregorian_leapyear(y))
 			d = 28;
 
-		return Gregorian(y, m, d);
+		return Gregorian(y, m, d, hour, minute, second);
 	}
 
 
@@ -103,13 +125,42 @@ namespace khronos {
 		year_t y = dt.year() + yearsToAdd;
 		month_t m = dt.month() + monthsToAdd;
 
+		hour_t hour = dt.hour();
+		minute_t minute = dt.minute();
+		second_t second = dt.second();
+
 		int adjustment = (m - 1) / 12 + (m - 12) / 12;
 		y += adjustment;
 		m -= month_t(adjustment * 12);
 
 		day_t d = std::min(dt.day(), gregorian_days_in_month(m, is_gregorian_leapyear(y)));
 
-		return Gregorian(y, m, d);
+		return Gregorian(y, m, d, hour, minute, second);
+	}
+
+
+	year_t year(Gregorian g) {
+		return g.year();
+	}
+
+	month_t month(Gregorian g) {
+		return g.month();
+	}
+
+	day_t day(Gregorian g) {
+		return g.day();
+	}
+
+	hour_t hour(Gregorian g) {
+		return g.hour();
+	}
+
+	minute_t minute(Gregorian g) {
+		return g.minute();
+	}
+
+	second_t second(Gregorian g) {
+		return g.second();
 	}
 
 }; // end-of-namespace calendar

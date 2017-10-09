@@ -28,7 +28,7 @@ namespace khronos {
 	void jd_to_gregorian(jd_t jd, year_t& year, month_t& month, day_t& day);
 	void jd_to_gregorian(jd_t jd, year_t& year, month_t& month, day_t& day, hour_t& hour, minute_t& minute, second_t& second);
 
-	bool	is_gregorian_leapyear(year_t year);
+	bool is_gregorian_leapyear(year_t year);
 
 
 	/* UDL - converts a Gregorian year BCE to an astronomical Gregorian year. */
@@ -155,5 +155,13 @@ namespace khronos {
 
 	/** Stream insertion operator. */
 	inline std::ostream& operator << (std::ostream& os, Gregorian const& g) { return os << g.to_string(); }
+
+	year_t year(Gregorian g);
+	month_t month(Gregorian g);
+	day_t day(Gregorian g);
+	hour_t hour(Gregorian g);
+	minute_t minute(Gregorian g);
+	second_t second(Gregorian g);
+
 }; // end-of-namespace
 

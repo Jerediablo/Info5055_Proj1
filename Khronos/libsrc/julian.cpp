@@ -6,3 +6,13 @@
 	*/
 
 #include <khronos/julian_calendar.hpp>
+
+namespace khronos {
+
+	bool is_julian_leapyear(year_t year) {
+		if (year % 4 == 0)
+			return true;
+		return false;
+	}
+
+}
