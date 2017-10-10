@@ -64,9 +64,9 @@ namespace khronos {
 
 		oss << julian_month_name(month_) << ' ' << (unsigned)day_ << ' ';
 		if (year_ <= 0)
-			oss << (-year_ + 1) << " BCE, ";
+			oss << (-year_ + 1) << " BC, ";
 		else
-			oss << year_ << " CE, ";
+			oss << year_ << " AD, ";
 
 		if (hour_ >= 12) {
 			if (hour_ > 12)
@@ -89,4 +89,59 @@ namespace khronos {
 		return oss.str();
 	}
 
+	// Add years ( + operator)
+	Julian operator + (Julian const& dt, detail::packaged_year_integer const& n) {
+		year_t y = dt.year() + n.nYears_;
+		month_t m = dt.month();
+		day_t d = dt.day();
+
+		hour_t hour = dt.hour();
+		minute_t minute = dt.minute();
+		second_t second = dt.second();
+
+		if (m == February && d == 29 && !is_julian_leapyear(y))
+			d = 28;
+
+		return Julian(y, m, d, hour, minute, second);
+	}
+
+	// Add months ( + operator)
+	Julian operator + (Julian const& dt, detail::packaged_month_integer const& n) {
+		year_t y = dt.year() + n.nMonths_ / 12;
+		month_t m = dt.month() + n.nMonths_ % 12;
+		int adjust = (m - 1) / 12 + (m - 12) / 12;
+		y += adjust;
+		m -= adjust * 12;
+		day_t d = std::min(dt.day(), julian_days_in_month(m, is_julian_leapyear(y)));
+
+		hour_t hour = dt.hour();
+		minute_t minute = dt.minute();
+		second_t second = dt.second();
+
+		return Julian(y, m, d, hour, minute, second);
+	}
+
+	year_t year(Julian j) {
+		return j.year();
+	}
+
+	month_t month(Julian j) {
+		return j.month();
+	}
+
+	day_t day(Julian j) {
+		return j.day();
+	}
+
+	hour_t hour(Julian j) {
+		return j.hour();
+	}
+
+	minute_t minute(Julian j) {
+		return j.minute();
+	}
+
+	second_t second(Julian j) {
+		return j.second();
+	}
 }
