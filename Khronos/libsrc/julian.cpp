@@ -7,7 +7,6 @@
 
 #include <khronos/julian_calendar.hpp>
 
-#include <cassert>
 #include <sstream>
 #include <ctime>
 #include <iomanip>
@@ -20,39 +19,19 @@ namespace khronos {
 	}
 
 	Julian::Julian() {
-		time_t nowTime = time(NULL);
-		struct tm tmNow;
-		localtime_s(&tmNow, &nowTime);
-		year_ = year_t(tmNow.tm_year + 1900);
-		month_ = month_t(tmNow.tm_mon + 1);
-		day_ = day_t(tmNow.tm_mday);
-		hour_ = hour_t(tmNow.tm_hour);
-		minute_ = minute_t(tmNow.tm_min);
-		second_ = second_t(tmNow.tm_sec);
-		
+		from_jd(Jd().jd());	
 	}
 
 	Julian::Julian(has_time_of_day status)
 	{
 		if (status == 0) {
-			time_t nowTime = time(NULL);
-			struct tm tmNow;
-			localtime_s(&tmNow, &nowTime);
-			year_ = tmNow.tm_year + 1900;
-			month_ = (tmNow.tm_mon + 1);
-			day_ = (tmNow.tm_mday);
+			from_jd(Jd().jd());
+			hour_ = 0;
+			minute_ = 0;
+			second_ = 0;
 		}
 		else if (status == 1) {
-			time_t nowTime = time(NULL);
-			struct tm tmNow;
-			localtime_s(&tmNow, &nowTime);
-			year_ = tmNow.tm_year + 1900;
-			month_ = (tmNow.tm_mon + 1);
-			day_ = (tmNow.tm_mday);
-			hour_ = (tmNow.tm_hour);
-			minute_ = (tmNow.tm_min);
-			second_ = (tmNow.tm_sec);
-
+			from_jd(Jd().jd());
 		}
 	}
 

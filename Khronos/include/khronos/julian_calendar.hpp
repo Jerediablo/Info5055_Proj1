@@ -126,13 +126,13 @@ namespace khronos {
 	inline Julian operator - (Julian const& dt, detail::packaged_year_integer const& year) { return dt + detail::packaged_year_integer(-year.nYears_); }
 
 	/** Stream insertion operator. */
-	inline std::ostream& operator << (std::ostream& os, Julian const& g) { return os << g.to_string(); }
+	inline std::ostream& operator << (std::ostream& os, Julian const& j) { return os << j.to_string(); }
 
-	year_t year(Julian g);
-	month_t month(Julian g);
-	day_t day(Julian g);
-	hour_t hour(Julian g);
-	minute_t minute(Julian g);
-	second_t second(Julian g);
+	year_t year(Julian j);
+	month_t month(Julian j);
+	day_t day(Julian j);
+	hour_t hour(Julian j);
+	minute_t minute(Julian j);
+	second_t second(Julian j);
 
 }

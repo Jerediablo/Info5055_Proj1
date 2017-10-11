@@ -39,6 +39,16 @@ namespace khronos {
 			return names[month];
 		}
 
+		char const * islamic_month_names(month_t month) {
+			static std::array<char const *, 13> const names = { "", "Muharram", "Safar", "Rabi'al-Awwal",
+				"Rabi'ath-Thani", "Jumada I-Ula", "Jumada t-Tania", "Rajab", "Sha'ban", "Ramadan", "Shawwal",
+				"Dhu I-Qa'da", "Dhu I-Hijja" };
+
+			assert(month > 0);
+			assert(month < 13);
+			return names[month];
+		}
+
 		/** Get the full name of the civil day of week.
 		@return pointer to the day name as a c-string.
 		@param day [in] day number [0..6], where 0 = Monday

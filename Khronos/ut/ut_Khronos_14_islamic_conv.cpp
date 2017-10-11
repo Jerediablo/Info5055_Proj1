@@ -24,7 +24,6 @@ BEGIN_PHASE(71, test_islamic_to_jd) {
 	auto test = [](year_t year, month_t month, day_t day, jd_t jdn)->bool {
 		return islamic_to_jd(year, month, day) == jdn;
 	};
-
 	BOOST_CHECK(test(-5498, Shaban, 16, -0.5));			// beginning of the Julian Epoch
 	BOOST_CHECK(test(1, Muharram, 1, ISLAMIC_EPOCH));	// Muharram 1, 1 A.H.
 	BOOST_CHECK(test(990, Ramadan, 17, 2'299'160.5));		// Gregorian adoption date Spain, Portugal, Polish-Lithuanian Commonwealth, Papal
