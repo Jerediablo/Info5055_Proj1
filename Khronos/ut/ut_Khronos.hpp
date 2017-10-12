@@ -18,7 +18,7 @@
 
 
 // set 'TEST_PHASES' to the maximum test phase attempted
-#define TEST_PHASES 83
+#define TEST_PHASES 85
 
 
 // set 'PHASE_dd' to 'false' for any test phase you wish to skip
@@ -113,8 +113,8 @@
 #define PHASE_81 true
 #define PHASE_82 true
 #define PHASE_83 true
-#define PHASE_84 false
-#define PHASE_85 false
+#define PHASE_84 true
+#define PHASE_85 true
 #define PHASE_86 false
 #define PHASE_87 false
 #define PHASE_88 false

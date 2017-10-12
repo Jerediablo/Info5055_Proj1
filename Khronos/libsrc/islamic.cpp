@@ -42,13 +42,11 @@ namespace khronos {
 		std::ostringstream oss;
 
 		// day of week
-		oss << civil::day_name(day_of_week(to_jd())) << ", ";
+		oss << civil::islamic_day_name(day_of_week(to_jd())) << ", ";
 
 		oss << islamic_month_name(month_) << ' ' << (unsigned)day_ << ' ';
-		if (year_ <= 0)
-			oss << (-year_ + 1) << " BC, ";
-		else
-			oss << year_ << " AD, ";
+		
+		oss << year_ << ", ";
 
 		if (hour_ >= 12) {
 			if (hour_ > 12)

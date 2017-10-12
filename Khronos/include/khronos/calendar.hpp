@@ -13,6 +13,7 @@ Khronos library 'civil' declarations.
 #include <khronos/def.hpp>
 #include <khronos/utility.hpp>
 
+
 namespace khronos {
 
 	enum civil_month_codes_long { January = 1, February, March, April, May, June, July, August, September, October, November, December };
@@ -29,6 +30,7 @@ namespace khronos {
 
 		// day functions
 		char const* day_name(day_t day);
+		char const* islamic_day_name(day_t day);
 		inline day_t day_of_week(jd_t jd) { return static_cast<day_t>(utility::mod(jd + 0.5, 7)); }
 		day_t days_in_month(month_t month, bool isLeapYear);
 		day_t islamic_days_in_month(month_t month, bool isLeapYear);

@@ -69,5 +69,15 @@ namespace khronos {
 			assert(day < 7);
 			return names[day];
 		}
+
+		char const* islamic_day_name(day_t day) {
+			day++;
+			static std::array<char const*, 7> const names = {
+				"al-'ahad", "al-'ithnayn", "alth-thalatha", "al-'arb`a'", "al-kharmis", "al-jum`a", "as-sabt"
+			};
+			assert(day >= 0);
+			assert(day < 7);
+			return names[day];
+		}
 	};
 };
