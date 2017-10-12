@@ -27,6 +27,7 @@ namespace khronos {
 		char const* month_name_long(month_t month);
 		char const* month_name_short(month_t month);
 		char const* islamic_month_names(month_t month);
+		char const* hebrew_month_names(month_t month);
 
 		// day functions
 		char const* day_name(day_t day);

@@ -57,6 +57,17 @@ namespace khronos {
 			return names[month];
 		}
 
+		char const * hebrew_month_names(month_t month) {
+			static std::array<char const *, 14> const names = { "",
+				"Nisan", "Iyyar", "Sivan", "Tammuz",
+				"Av", "Elul", "Tishri", "Heshvan",
+				"Kislev", "Teveth", "Shevat", "Adar", "Veadar" };
+
+			assert(month > 0);
+			assert(month < 14);
+			return names[month];
+		}
+
 		/** Get the full name of the civil day of week.
 		@return pointer to the day name as a c-string.
 		@param day [in] day number [0..6], where 0 = Monday

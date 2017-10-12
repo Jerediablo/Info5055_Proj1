@@ -15,6 +15,7 @@ namespace khronos {
 		jd_t jdn = day + ceil(29.5 * (month - 1)) + (year - 1) * 354 + floor((3 + 11 * year) / 30.0) + ISLAMIC_EPOCH - 1;
 		return jdn;
 	}
+
 	jd_t islamic_to_jd(year_t year, month_t month, day_t day, hour_t hour, minute_t minute, second_t second) {
 		jd_t jdn = islamic_to_jd(year, month, day);
 		double tod = khronos::tod(hour, minute, second);
