@@ -20,7 +20,7 @@ namespace khronos {
 	enum civil_weekday_codes_long { Monday = 0, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday };
 	enum civil_weekday_codes_short { MON = Monday, TUE, WED, THU, FRI, SAT, SUN };
 	enum civil_islamic_month_names { Muharram = 1, Safar, RabialAwwal, RabiathThani, JumadaIUla, 
-		JumadatTania, Rajab, Shaban, Ramadan, Shawwal, DhulQadah, DhuIHijja };
+		JumadatTania, Rajab, Shaban, Ramadan, Shawwal, DhulQadah, DhulHijja};
 
 	namespace civil {
 		char const* month_name_long(month_t month);
@@ -31,5 +31,6 @@ namespace khronos {
 		char const* day_name(day_t day);
 		inline day_t day_of_week(jd_t jd) { return static_cast<day_t>(utility::mod(jd + 0.5, 7)); }
 		day_t days_in_month(month_t month, bool isLeapYear);
+		day_t islamic_days_in_month(month_t month, bool isLeapYear);
 	};
 };

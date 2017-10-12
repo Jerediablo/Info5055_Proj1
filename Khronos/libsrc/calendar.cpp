@@ -15,6 +15,14 @@ namespace khronos {
 			return daysInMonth[isLeapYear][month];
 		}
 
+		day_t islamic_days_in_month(month_t month, bool isLeapYear) {
+			if ((month % 2 != 0) || (month == 12 && isLeapYear)) {
+				return 30;
+			} else {
+				return 29;
+			}
+		}
+
 		char const * month_name_long(month_t month) {
 			static std::array<char const *, 13> const names = {
 				"",

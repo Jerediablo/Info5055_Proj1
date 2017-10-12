@@ -22,7 +22,7 @@ namespace khronos {
 	}
 
 	inline day_t islamic_days_in_month(month_t month, bool isLeapYear) {
-		return civil::days_in_month(month, isLeapYear);
+		return civil::islamic_days_in_month(month, isLeapYear);
 	}
 
 	jd_t islamic_to_jd(year_t year, month_t month, day_t day);
@@ -40,6 +40,7 @@ namespace khronos {
 
 		void from_jd(jd_t jd) { jd_to_islamic(jd, year_, month_, day_, hour_, minute_, second_); }
 		jd_t to_jd() const { return islamic_to_jd(year_, month_, day_, hour_, minute_, second_); }
+
 	public:
 		Islamic();
 

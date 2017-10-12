@@ -28,8 +28,8 @@ namespace khronos {
 	Islamic::Islamic(has_time_of_day status)
 	{
 		if (status == 0) {
-			from_jd(Jd().jd());
-			hour_ = 0;
+				from_jd(Jd().jd());
+			hour_ = -24;
 			minute_ = 0;
 			second_ = 0;
 		}
@@ -71,6 +71,23 @@ namespace khronos {
 		return oss.str();
 	}
 
+	// Add months ( + operator)
+	Islamic operator + (Islamic const& dt, detail::packaged_month_integer const& n) {
+		year_t y = dt.year() + n.nMonths_ / 12;
+		month_t m = dt.month() + n.nMonths_ % 12;
+		int adjust = (m - 1) / 12 + (m - 12) / 12;
+		y += adjust;
+		m -= adjust * 12;
+		day_t d = std::min(dt.day(), islamic_days_in_month(m, is_islamic_leapyear(y)));
+
+		hour_t hour = dt.hour();
+		minute_t minute = dt.minute();
+		second_t second = dt.second();
+
+		return Islamic(y, m, d, hour, minute, second);
+	}
+
+
 	// Add years ( + operator)
 	Islamic operator + (Islamic const& dt, detail::packaged_year_integer const& n) {
 		year_t y = dt.year() + n.nYears_;
@@ -81,24 +98,8 @@ namespace khronos {
 		minute_t minute = dt.minute();
 		second_t second = dt.second();
 
-		if (m == February && d == 29 && !is_islamic_leapyear(y))
-			d = 28;
-
-		return Islamic(y, m, d, hour, minute, second);
-	}
-
-	// Add months ( + operator)
-	Islamic operator + (Islamic const& dt, detail::packaged_month_integer const& n) {
-		year_t y = dt.year() + n.nMonths_ / 12;
-		month_t m = dt.month() + n.nMonths_ % 12;
-		int adiust = (m - 1) / 12 + (m - 12) / 12;
-		y += adiust;
-		m -= adiust * 12;
-		day_t d = std::min(dt.day(), islamic_days_in_month(m, is_islamic_leapyear(y)));
-
-		hour_t hour = dt.hour();
-		minute_t minute = dt.minute();
-		second_t second = dt.second();
+		if (m == 12 && d == 30 && !is_islamic_leapyear(y))
+			d = 29;
 
 		return Islamic(y, m, d, hour, minute, second);
 	}

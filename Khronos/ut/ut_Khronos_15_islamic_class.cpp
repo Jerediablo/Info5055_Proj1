@@ -45,6 +45,7 @@ BEGIN_PHASE(73, Islamic_ctor_default) {
 
 	BOOST_CHECK(localDateTime == now);
 	BOOST_CHECK(localDate == today);
+
 } END_PHASE()
 #endif
 
