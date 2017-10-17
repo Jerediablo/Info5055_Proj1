@@ -18,7 +18,7 @@
 namespace khronos {
 
 	bool is_islamic_leapyear(year_t year) {
-		return utility::mod((11.0 * year) + 14, 30) < 11;
+		return (((11 * year) + 14) % 30) < 11;
 	}
 
 	Islamic::Islamic() {
@@ -28,7 +28,7 @@ namespace khronos {
 	Islamic::Islamic(has_time_of_day status)
 	{
 		if (status == 0) {
-				from_jd(Jd().jd());
+			from_jd(Jd().jd());
 			hour_ = -24;
 			minute_ = 0;
 			second_ = 0;

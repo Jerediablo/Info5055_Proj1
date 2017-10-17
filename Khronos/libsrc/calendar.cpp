@@ -1,5 +1,6 @@
 #include <khronos/calendar.hpp>
 #include <khronos/gregorian_calendar.hpp>
+#include <khronos/hebrew_calendar.hpp>
 #include <khronos/def.hpp>
 #include <array>
 #include <cassert> 
@@ -21,6 +22,23 @@ namespace khronos {
 			} else {
 				return 29;
 			}
+		}
+
+		day_t hebrew_days_in_month(year_t year, month_t month) {
+			day_t days;
+			if (month == 2 || month == 4 || month == 6 || month == 10 || month == 13)
+				days = 29;
+			else if (month == 12 && is_hebrew_leapyear(year) == false)
+				days = 29;
+			else if (month == 8 && utility::mod(hebrew_days_in_year(year), 10) != 5)
+				days = 29;
+			else if (month == 9 && utility::mod(hebrew_days_in_year(year), 10) == 3)
+				days = 29;
+			else
+				days = 30;
+
+			return days;
+
 		}
 
 		char const * month_name_long(month_t month) {
