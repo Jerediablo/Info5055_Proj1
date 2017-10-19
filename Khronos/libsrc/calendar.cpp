@@ -86,6 +86,16 @@ namespace khronos {
 			return names[month];
 		}
 
+		char const * vulcan_month_names(month_t month) {
+			static std::array<char const *, 13> const names = { "", "Z'at",
+				"D'ruh", "K'riBrax", "re'T'Khutai", "T'keKhuti", "Khuti",
+				"Ta'Krat", "K'ri'lior", "et'khior", "T'lakht", "T'ke'Tas", "Tasmeen" };
+
+			assert(month > 0);
+			assert(month < 13);
+			return names[month];
+		}
+
 		/** Get the full name of the civil day of week.
 		@return pointer to the day name as a c-string.
 		@param day [in] day number [0..6], where 0 = Monday
