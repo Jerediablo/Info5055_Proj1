@@ -18,7 +18,7 @@
 namespace khronos {
 
 	bool is_hebrew_leapyear(year_t year) {
-		return utility::mod((7.0 * year) + 1, 30) < 7;
+		return utility::mod((7.0 * year) + 1, 19) < 7;
 	}
 
 	Hebrew::Hebrew() {
@@ -29,7 +29,10 @@ namespace khronos {
 	{
 		if (status == 0) {
 			from_jd(Jd().jd());
-			hour_ = -24;
+			if (hour_ >= 12) {
+				--day_;
+			}
+			hour_ = 0;
 			minute_ = 0;
 			second_ = 0;
 		}
@@ -78,9 +81,9 @@ namespace khronos {
 	}
 
 	day_t delayOfWeek(year_t year) {
-		month_t months = floor((235 * year - 234) / 19.0);
+		month_t months = static_cast<month_t>(floor((235 * year - 234) / 19.0));
 		long parts = 12084 + 13753 * months;
-		day_t days = months * 29 + floor(parts / 25920.0);
+		day_t days = months * 29 + static_cast<day_t>(floor(parts / 25920.0));
 		
 		if ( ((3 * (days + 1)) % 7) < 3) {
 			++days;
@@ -102,7 +105,7 @@ namespace khronos {
 	}
 
 	long hebrew_days_in_year(year_t year) {
-		return hebrew_to_jd(year + 1, 7, 1) - hebrew_to_jd(year, 7, 1);
+		return static_cast<long>(hebrew_to_jd(year + 1, 7, 1) - hebrew_to_jd(year, 7, 1));
 	}
 
 	day_t hebrew_days_in_month(year_t year, month_t month) {

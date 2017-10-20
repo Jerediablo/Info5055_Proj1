@@ -29,6 +29,7 @@ namespace khronos {
 	jd_t constexpr JULIAN_EPOCH = 1'721'423.5;
 	jd_t constexpr ISLAMIC_EPOCH = 1'948'439.5;
 	jd_t constexpr HEBREW_EPOCH = 347'995.5;
+	jd_t constexpr VULCAN_EPOCH = 173'651.6;
 
 	enum has_time_of_day { NOTIMEOFDAY, WTIMEOFDAY };
 }

@@ -42,7 +42,7 @@ namespace khronos {
 
 	void jd_to_hebrew(jd_t jd, year_t& year, month_t& month, day_t& day) {
 	    jd = floor(jd) + 0.5;
-		int count = floor((( jd-HEBREW_EPOCH ) * 98'496) / 35'975'351);
+		int count = static_cast<int>(floor((( jd-HEBREW_EPOCH ) * 98'496) / 35'975'351));
 		year = count - 1;
 		int i = count;
 		while (jd >= hebrew_to_jd(i, 7, 1)) {
@@ -59,7 +59,7 @@ namespace khronos {
 			month++;
 			i++;
 		}
-		day = floor(jd - hebrew_to_jd(year, month, 1) + 1);
+		day = static_cast<day_t>(floor(jd - hebrew_to_jd(year, month, 1) + 1));
 	}
 
 	void jd_to_hebrew(jd_t jd, year_t& year, month_t& month, day_t& day, hour_t& hour, minute_t& minute, second_t& second) {

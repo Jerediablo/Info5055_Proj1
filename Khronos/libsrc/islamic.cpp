@@ -29,7 +29,10 @@ namespace khronos {
 	{
 		if (status == 0) {
 			from_jd(Jd().jd());
-			hour_ = -24;
+			if (hour_ >= 12) {
+				--day_;
+			}
+			hour_ = 0;
 			minute_ = 0;
 			second_ = 0;
 		}

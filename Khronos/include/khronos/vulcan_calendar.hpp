@@ -25,4 +25,9 @@ namespace khronos {
 		return civil::vulcan_month_names(month);
 	}
 
+	jd_t vulcan_to_jd(year_t year, month_t month, day_t day);
+	jd_t vulcan_to_jd(year_t year, month_t month, day_t day, hour_t hour, minute_t minute, second_t second);
+	void jd_to_vulcan(jd_t jd, year_t& year, month_t& month, day_t& day);
+	void jd_to_vulcan(jd_t jd, year_t& year, month_t& month, day_t& day, hour_t& hour, minute_t& minute, second_t& second);
+
 }
