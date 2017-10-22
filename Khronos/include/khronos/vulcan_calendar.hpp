@@ -1,11 +1,12 @@
 #pragma once
 
-/**	@file vulcan.hpp
-	@author Garth Santor
-	@date 2014-09-29
+/*
+File:		khronos/vulcan.hpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
-	Vulcan calendar class and functions.
-	*/
+Vulcan calendar class and functions.
+*/
 
 #include <khronos/calendar.hpp>
 #include <khronos/def.hpp>
@@ -112,4 +113,5 @@ namespace khronos {
 	hour_t hour(Vulcan i);
 	minute_t minute(Vulcan v);
 	second_t second(Vulcan v);
-}
+
+}  // end-of-namespace khronos

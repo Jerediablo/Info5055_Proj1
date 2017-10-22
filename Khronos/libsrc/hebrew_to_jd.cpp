@@ -1,9 +1,10 @@
-/**	@file Hebrew_to_jd.cpp
-	@author Garth Santor
-	@date 2012-09-14
+/*
+File:		khronos/hebrew_to_jd.cpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
-	Hebrew calendar conversion implementations.
-	*/
+Hebrew calendar conversion implementations.
+*/
 
 #include <khronos/hebrew_calendar.hpp>
 #include <khronos/timeofday.hpp>
@@ -67,4 +68,4 @@ namespace khronos {
 		double tod = (jd + 0.5) - floor(jd + 0.5);
 		hms(tod, hour, minute, second);
 	}
-}
+}  // end-of-namespace khronos

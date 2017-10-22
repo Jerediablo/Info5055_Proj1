@@ -1,13 +1,13 @@
 #pragma once
 
 /*
-khronos\timeofday.hpp
-(c) Garth Santor
-Created: 2015-09-22
-Last Updated: 2015-09-22
+File:		khronos/timeofday.hpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
 Khronos library 'time-of-day' declarations.
 */
+
 #include <khronos/calendar.hpp>
 #include <khronos/utility.hpp>
 
@@ -33,4 +33,4 @@ namespace khronos {
 
 	void hms(double tod, hour_t& hours, minute_t& minutes, second_t& seconds);
 	
-}
+}  // end-of-namespace khronos

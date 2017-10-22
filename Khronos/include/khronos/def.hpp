@@ -1,10 +1,9 @@
 #pragma once
 
 /*
-khronos\def.hpp
-(c) Garth Santor
-Created: 2015-09-22
-Last Updated: 2015-09-22
+File:		khronos/def.hpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
 Khronos library definitions.
 */
@@ -32,4 +31,5 @@ namespace khronos {
 	jd_t constexpr VULCAN_EPOCH = 173'651.6;
 
 	enum has_time_of_day { NOTIMEOFDAY, WTIMEOFDAY };
-}
+
+} // end-of-namespace khronos

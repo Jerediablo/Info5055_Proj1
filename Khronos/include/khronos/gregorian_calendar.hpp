@@ -1,9 +1,9 @@
 #pragma once
+
 /*
-khronos\gregorian_calendar.hpp
-(c) Garth Santor
-Created: 2015-09-22
-Last Updated: 2015-09-22
+File:		khronos/gregorian_calendar.hpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
 Khronos library 'Gregorian calendar' declarations.
 */
@@ -163,5 +163,5 @@ namespace khronos {
 	minute_t minute(Gregorian g);
 	second_t second(Gregorian g);
 
-}; // end-of-namespace
+}; // end-of-namespace khronos
 

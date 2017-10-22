@@ -1,6 +1,10 @@
 #pragma once
 
-
+/*
+File:		khronos/julian_day.hpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
+*/
 
 #include "calendar.hpp"
 #include <string>
@@ -138,5 +142,5 @@ namespace khronos {
 	/**	JD - (integer year) */
 	inline Jd operator - (Jd const& dt, detail::packaged_year_integer const& year) { return dt + detail::packaged_year_integer(-year.nYears_); }
 
-}; // end-of-namespace calendar
+};  // end-of-namespace khronos
 

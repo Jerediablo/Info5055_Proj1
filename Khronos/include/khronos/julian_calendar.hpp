@@ -1,11 +1,12 @@
 #pragma once
 
-/**	@file khronos/julian_calendar.hpp
-	@author Garth Santor
-	@date 2013-09-19
+/*
+File:		khronos/julian_calendar.hpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
-	Julian calendar functions and class declaration.
-	*/
+Julian calendar functions and class declaration.
+*/
 
 #include <khronos/def.hpp>
 #include <khronos/calendar.hpp>
@@ -135,4 +136,4 @@ namespace khronos {
 	minute_t minute(Julian j);
 	second_t second(Julian j);
 
-}
+} // end-of-namespace khronos

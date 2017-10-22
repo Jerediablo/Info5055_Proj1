@@ -1,9 +1,10 @@
-/**	@file gregorian.cpp
-	@author Garth Santor
-	@date 2013-09-19
+/*
+File:		khronos/gregorian.cpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
-	Gregorian calendar class implementation.
-	*/
+Gregorian calendar class implementation.
+*/
 
 #include <khronos/gregorian_calendar.hpp>
 #include <khronos/calendar.hpp>
@@ -163,4 +164,4 @@ namespace khronos {
 		return g.second();
 	}
 
-}; // end-of-namespace calendar
+}; // end-of-namespace khronos

@@ -1,11 +1,12 @@
 #pragma once
 
-/**	@file khronos/hebrew_calendar.hpp
-	@author Garth Santor
-	@date 2013-09-26
+/*
+File:		khronos/hebrew_calendar.hpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
-	Hebrew calendar class.
-	*/
+Hebrew calendar class.
+*/
 
 #include <khronos/def.hpp>
 #include <khronos/calendar.hpp>
@@ -117,4 +118,4 @@ namespace khronos {
 	minute_t minute(Hebrew i);
 	second_t second(Hebrew i);
 
-}
+} // end-of-namespace khronos

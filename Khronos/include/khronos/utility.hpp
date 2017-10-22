@@ -1,4 +1,9 @@
 #pragma once
+/*
+File:		khronos/utility.hpp
+Author:		Jeremy Peterson - Katz
+Date:		October 21, 2017
+*/
 
 #include <cmath>
 

@@ -1,8 +1,7 @@
 /*
-khronos\jd_to_gregorian.cpp
-(c) Garth Santor
-Created: 2015-09-22
-Last Updated: 2015-09-22
+File:		khronos/jd_to_gregorian.cpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
 Khronos library 'gregorian::from_jdn' implementation.
 */
@@ -64,7 +63,7 @@ namespace khronos {
 			month = (m + 2) % 12 + 1;
 			day = static_cast<day_t>(da - (m + 4) * 153 / 5 + 123);
 		}
-	};
+	};  // end-of-namespace detail
 
 	void jd_to_gregorian(jd_t jd, year_t& year, month_t& month, day_t& day) {
 		assert(jd >= -31738.5 && "Minimum convertable date not provided.");
@@ -102,4 +101,4 @@ namespace khronos {
 		double tod = (jd + 0.5) - floor(jd+0.5);
 		hms(tod, hour, minute, second);
 	}
-}
+}  // end-of-namespace khronos

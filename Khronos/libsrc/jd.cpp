@@ -1,9 +1,10 @@
-/**	@file Jdn.cpp
-	@author Garth Santor
-	@date 2012-09-16
+/*
+File:		khronos/jd.cpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
-	Date and time library to_string method implementations.
-	*/
+Date and time library to_string method implementations.
+*/
 
 
 #include <khronos/julian_day.hpp>
@@ -74,4 +75,4 @@ namespace khronos {
 	Jd operator + (Jd const& dt, detail::packaged_year_real const& year) {
 		return Jd(dt.jd() + year.nYears_ * EARTH_ORBITAL_PERIOD_DAYS);
 	}
-};
+};  // end-of-namespace khronos

@@ -1,9 +1,10 @@
-/**	@file Islamic_to_jd.cpp
-	@author Garth Santor
-	@date 2013-09-19
+/*
+File:		khronos/islamic_to_jd.cpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
-	Islamic calendar conversion implementations.
-	*/
+Islamic calendar conversion implementations.
+*/
 
 #include <khronos/islamic_calendar.hpp>
 #include <khronos/timeofday.hpp>
@@ -39,4 +40,4 @@ namespace khronos {
 		double tod = (jd + 0.5) - floor(jd + 0.5);
 		hms(tod, hour, minute, second);
 	}
-}
+}  // end-of-namespace khronos

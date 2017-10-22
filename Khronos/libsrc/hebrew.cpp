@@ -1,9 +1,10 @@
-/**	@file Hebrew.cpp
-	@author Garth Santor
-	@date 2013-10-20
+/*
+File:		khronos/hebrew.cpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
-	Hebrew calendar class implementation.
-	*/
+Hebrew calendar class implementation.
+*/
 
 #include <khronos/hebrew_calendar.hpp>
 #include <khronos/utility.hpp>
@@ -151,4 +152,4 @@ namespace khronos {
 	second_t second(Hebrew i) {
 		return i.second();
 	}
-}
+}  // end-of-namespace khronos

@@ -1,8 +1,7 @@
 /*
-khronos\time_of_day.cpp
-(c) Garth Santor
-Created: 2015-09-22
-Last Updated: 2015-09-22
+File:		khronos/time_of_day.cpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
 Khronos library 'time-of-day' function implementations.
 */
@@ -21,4 +20,4 @@ namespace khronos {
 		seconds = secondsInDay % 60;
 	}
 
-};
+};  // end-of-namespace khronos

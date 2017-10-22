@@ -1,9 +1,10 @@
-/**	@file vulcan.cpp
-	@author Garth Santor
-	@date 2014-09-29
+/*
+File:		khronos/vulcan.cpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
-	Vulcan calendar class implementation.
-	*/
+Vulcan calendar class implementation.
+*/
 
 #include <khronos/vulcan_calendar.hpp>
 
@@ -160,4 +161,4 @@ namespace khronos {
 
 		return Vulcan(y, m, d, hour, minute, second);
 	}
-}
+}  // end-of-namespace khronos

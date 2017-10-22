@@ -1,3 +1,9 @@
+/*
+File:		khronos/calendar.cpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
+*/
+
 #include <khronos/calendar.hpp>
 #include <khronos/gregorian_calendar.hpp>
 #include <khronos/hebrew_calendar.hpp>
@@ -118,5 +124,5 @@ namespace khronos {
 			assert(day < 7);
 			return names[day];
 		}
-	};
-};
+	};  // end-of-namespace civil
+};  // end-of-namespace khronos

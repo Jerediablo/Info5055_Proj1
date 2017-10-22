@@ -1,11 +1,13 @@
 #pragma once
 
-/**	@file khronos/Islamic_calendar.hpp
-	@author Garth Santor
-	@date 2013-09-19
+/*
+File:		khronos/Islamic_calendar.hpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
-	Islamic calendar class and functions.
-	*/
+Islamic calendar class and functions.
+*/
+
 #include <khronos/def.hpp>
 #include <khronos/calendar.hpp>
 #include <khronos/julian_day.hpp>
@@ -114,6 +116,6 @@ namespace khronos {
 	minute_t minute(Islamic i);
 	second_t second(Islamic i);
 
-}
+} // end-of-namespace khronos
 
 

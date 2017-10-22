@@ -1,9 +1,10 @@
-/**	@file Julian.cpp
-	@author Garth Santor
-	@date 2013-09-19
+/*
+File:		khronos/julian.cpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
-	Julian calendar class implementation.
-	*/
+Julian calendar class implementation.
+*/
 
 #include <khronos/julian_calendar.hpp>
 
@@ -123,4 +124,4 @@ namespace khronos {
 	second_t second(Julian j) {
 		return j.second();
 	}
-}
+}  // end-of-namespace khronos

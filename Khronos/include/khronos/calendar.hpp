@@ -1,10 +1,9 @@
 #pragma once
 
 /*
-khronos\calendar.hpp
-(c) Garth Santor
-Created: 2015-09-22
-Last Updated: 2015-09-22
+File:		khronos/calendar.hpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
 Khronos library 'civil' declarations.
 */
@@ -46,5 +45,6 @@ namespace khronos {
 		day_t days_in_month(month_t month, bool isLeapYear);
 		day_t islamic_days_in_month(month_t month, bool isLeapYear);
 		day_t hebrew_days_in_month(year_t year, month_t month);
-	};
-};
+
+	}; // end-of-namespace civil
+}; // end-of-namespace khronos

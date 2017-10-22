@@ -1,8 +1,7 @@
 /*
-khronos\gregorian_to_jdn.cpp
-(c) Garth Santor
-Created: 2015-09-22
-Last Updated: 2015-09-22
+File:		khronos/gregorian_to_jdn.cpp
+Author:		Jeremy Peterson-Katz
+Date:		October 21, 2017
 
 Khronos library 'gregorian::to_jdn' implementation.
 */
@@ -29,7 +28,7 @@ namespace khronos {
 						? 0
 						: (is_gregorian_leapyear(year) ? -1 : -2)))
 				+ dayOfMonth;
-		}
+		} 
 
 
 		/**	Integer implementation (wikipedia). */
@@ -39,7 +38,8 @@ namespace khronos {
 			long long m = month + 12 * a - 3;
 			return day + (153 * m + 2) / 5 + 365 * y + y / 4 - y / 100 + y / 400 - 32045 - 0.5;
 		}
-	};
+	};  // end-of-namespace detail
+
 	jd_t gregorian_to_jd(year_t year, month_t month, day_t day) {
 		assert(year > -4800 && "Minimum year is 4800 BCE");
 		assert(month >= 1 && "Minimum month is January = 1");
@@ -55,4 +55,4 @@ namespace khronos {
 		double tod = khronos::tod(hour, minute, second);
 		return jdn + tod;
 	}
-}
+}  // end-of-namespace khronos
