@@ -5,7 +5,7 @@ File:		khronos/julian_calendar.hpp
 Author:		Jeremy Peterson-Katz
 Date:		October 21, 2017
 
-Julian calendar functions and class declaration.
+Khronos library 'Julian calendar' declarations.
 */
 
 #include <khronos/def.hpp>

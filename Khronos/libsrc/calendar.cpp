@@ -14,6 +14,12 @@ Date:		October 21, 2017
 
 namespace khronos {
 	namespace civil {
+
+		/*  Function:	 days_in_month
+			Purpose:	 Get the number of days in a month in the Gregorian or Julian calendars
+			Parameters:	 - A month_t : The month [1-12] (0 is unused) 
+						 - A bool : Showing if it's a leap year or not
+			Returns:	 The number of days in the month, as type day_t		*/	
 		day_t days_in_month(month_t month, bool isLeapYear) {
 			static std::array<std::array<day_t, 13>, 2> daysInMonth = {
 				0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
@@ -22,14 +28,23 @@ namespace khronos {
 			return daysInMonth[isLeapYear][month];
 		}
 
+		/*  Function:	 islamic_days_in_month
+			Purpose:	 Get the number of days in a month in the Islamic calendar
+			Parameters:	 - A month_t : The month [1-12]
+						 - A bool : Showing if it's a leap year or not
+			Returns:	 The number of days in the month, as type day_t		*/	
 		day_t islamic_days_in_month(month_t month, bool isLeapYear) {
-			if ((month % 2 != 0) || (month == 12 && isLeapYear)) {
+			if ((month % 2 != 0) || (month == 12 && isLeapYear)) 
 				return 30;
-			} else {
-				return 29;
-			}
+			 else 
+				return 29;			
 		}
 
+		/*  Function:	 hebrew_days_in_month
+			Purpose:	 Get the number of days in a month in the Hebrew calendar
+			Parameters:	 - A year_t : The year
+						 - A month_t : The month [1-13]
+			Returns:	 The number of days in the month, as type day_t		*/		
 		day_t hebrew_days_in_month(year_t year, month_t month) {
 			day_t days;
 			if (month == 2 || month == 4 || month == 6 || month == 10 || month == 13)
@@ -43,10 +58,16 @@ namespace khronos {
 			else
 				days = 30;
 
+			assert(month > 0);
+			assert(month < 14);
 			return days;
 
 		}
 
+		/*  Function:	 month_name_long
+			Purpose:	 Get the long name for a month in the Gregorian or Julian calendars
+			Parameters:	 A month_t : The month [1-12] (0 is unused)
+			Returns:	 The long month name, as a pointer to a const char	*/
 		char const * month_name_long(month_t month) {
 			static std::array<char const *, 13> const names = {
 				"",
@@ -59,6 +80,10 @@ namespace khronos {
 			return names[month];
 		}
 
+		/*  Function:	 month_name_short
+			Purpose:	 Get the short name for a month in the Gregorian or Julian calendars
+			Parameters:	 A month_t : The month [1-12] (0 is unused)
+			Returns:	 The short month name, as a pointer to a const char	*/
 		char const * month_name_short(month_t month) {
 			static std::array<char const *, 13> const names = {
 				"",
@@ -71,6 +96,10 @@ namespace khronos {
 			return names[month];
 		}
 
+		/*  Function:	 islamic_month_names
+			Purpose:	 Get the name for a month in the Islamic calendar
+			Parameters:	 A month_t : The month [1-12] (0 is unused)
+			Returns:	 The month name, as a pointer to a const char	*/
 		char const * islamic_month_names(month_t month) {
 			static std::array<char const *, 13> const names = { "", "Muharram", "Safar", "Rabi'al-Awwal",
 				"Rabi'ath-Thani", "Jumada I-Ula", "Jumada t-Tania", "Rajab", "Sha'ban", "Ramadan", "Shawwal",
@@ -81,6 +110,10 @@ namespace khronos {
 			return names[month];
 		}
 
+		/*  Function:	 hebrew_month_names
+			Purpose:	 Get the name for a month in the Hebrew calendar
+			Parameters:	 A month_t : The month [1-13] (0 is unused)
+			Returns:	 The month name, as a pointer to a const char	*/
 		char const * hebrew_month_names(month_t month) {
 			static std::array<char const *, 14> const names = { "",
 				"Nisan", "Iyyar", "Sivan", "Tammuz",
@@ -92,6 +125,10 @@ namespace khronos {
 			return names[month];
 		}
 
+		/*  Function:	 vulcan_month_names
+			Purpose:	 Get the name for a month in the Vulcan calendar
+			Parameters:	 A month_t : The month [1-12] (0 is unused)
+			Returns:	 The month name, as a pointer to a const char	*/
 		char const * vulcan_month_names(month_t month) {
 			static std::array<char const *, 13> const names = { "", "Z'at",
 				"D'ruh", "K'riBrax", "re'T'Khutai", "T'keKhuti", "Khuti",
@@ -102,10 +139,10 @@ namespace khronos {
 			return names[month];
 		}
 
-		/** Get the full name of the civil day of week.
-		@return pointer to the day name as a c-string.
-		@param day [in] day number [0..6], where 0 = Monday
-		*/
+		/*  Function:	 day_name
+			Purpose:	 Get the name for a day in the Gregorian, Julian, or Hebrew calendars
+			Parameters:	 A day_t : The day [0-6]
+			Returns:	 The day name, as a pointer to a const char	*/
 		char const* day_name(day_t day) {
 			static std::array<char const*, 7> const names = {
 				"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
@@ -115,6 +152,10 @@ namespace khronos {
 			return names[day];
 		}
 
+		/*  Function:	 islamic_day_name
+			Purpose:	 Get the name for a day in the Islamic calendar
+			Parameters:	 A day_t : The day [0-6]
+			Returns:	 The day name, as a pointer to a const char	*/
 		char const* islamic_day_name(day_t day) {
 			day++;
 			static std::array<char const*, 7> const names = {

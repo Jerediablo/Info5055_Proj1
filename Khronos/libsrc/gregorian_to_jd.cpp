@@ -40,6 +40,8 @@ namespace khronos {
 		}
 	};  // end-of-namespace detail
 
+	// Gregorian-to-jd, containing asserts to verify data is within proper ranges,
+	// and ensuring the integer and real-number implementations give the same result
 	jd_t gregorian_to_jd(year_t year, month_t month, day_t day) {
 		assert(year > -4800 && "Minimum year is 4800 BCE");
 		assert(month >= 1 && "Minimum month is January = 1");
@@ -49,7 +51,8 @@ namespace khronos {
 		assert(detail::greg2jd_integer(year, month, day) == detail::greg2jd_real(year, month, day));
 		return detail::greg2jd_integer(year, month, day);
 	}
-
+	
+	// Gregorian-to-jd function, with time-of-day included
 	jd_t gregorian_to_jd(year_t year, month_t month, day_t day, hour_t hour, minute_t minute, second_t second) {
 		jd_t jdn = gregorian_to_jd(year, month, day);
 		double tod = khronos::tod(hour, minute, second);

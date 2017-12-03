@@ -127,6 +127,7 @@ namespace khronos {
 			days = 30;
 		}
 		return days;
+
 	}
 
 	year_t year(Hebrew i) {

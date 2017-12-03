@@ -5,7 +5,7 @@ File:		khronos/vulcan.hpp
 Author:		Jeremy Peterson-Katz
 Date:		October 21, 2017
 
-Vulcan calendar class and functions.
+Khronos library 'Vulcan calendar' declarations.
 */
 
 #include <khronos/calendar.hpp>

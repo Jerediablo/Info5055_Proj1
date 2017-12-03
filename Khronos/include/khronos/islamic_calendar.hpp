@@ -5,7 +5,7 @@ File:		khronos/Islamic_calendar.hpp
 Author:		Jeremy Peterson-Katz
 Date:		October 21, 2017
 
-Islamic calendar class and functions.
+Khronos library 'Islamic calendar' declarations.
 */
 
 #include <khronos/def.hpp>

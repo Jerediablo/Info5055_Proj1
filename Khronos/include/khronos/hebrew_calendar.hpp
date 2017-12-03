@@ -5,7 +5,7 @@ File:		khronos/hebrew_calendar.hpp
 Author:		Jeremy Peterson-Katz
 Date:		October 21, 2017
 
-Hebrew calendar class.
+Khronos library 'Hebrew calendar' declarations.
 */
 
 #include <khronos/def.hpp>
@@ -17,22 +17,31 @@ Hebrew calendar class.
 
 namespace khronos {
 
-	bool is_hebrew_leapyear(year_t year);
+	// FUNCTIONS
+	// --------------------------------------------------------------------------------------
 
-	inline char const * hebrew_month_name(month_t month) {
-		return civil::hebrew_month_names(month);
-	}
-
+	// Function declarations for hebrew-to-jd and jd-to-hebrew conversions (with and without times).
 	jd_t hebrew_to_jd(year_t year, month_t month, day_t day);
 	jd_t hebrew_to_jd(year_t year, month_t month, day_t day, hour_t hour, minute_t minute, second_t second);
 	void jd_to_hebrew(jd_t jd, year_t& year, month_t& month, day_t& day);
 	void jd_to_hebrew(jd_t jd, year_t& year, month_t& month, day_t& day, hour_t& hour, minute_t& minute, second_t& second);
+
+	// Function declaraction to check if a year is a leapyear.
+	bool is_hebrew_leapyear(year_t year);
+
+	// Provide the name of the given month in the Hebrew calendar. 
+	inline char const * hebrew_month_name(month_t month) {
+		return civil::hebrew_month_names(month);
+	}
 
 	day_t delayOfWeek(year_t year);
 	day_t delayAdjacentYear(year_t year);
 	long hebrew_days_in_year(year_t year);
 	day_t hebrew_days_in_month(year_t year, month_t month);
 	month_t hebrew_months_in_year(year_t year);
+
+	// CLASSES
+	// --------------------------------------------------------------------------------------
 
 	class Hebrew {
 		year_t		year_ = 1;
@@ -95,6 +104,9 @@ namespace khronos {
 		Hebrew operator + (detail::packaged_month_real const&);
 		Hebrew operator - (detail::packaged_month_real const&);
 	};
+
+	// OPERATORS
+	// --------------------------------------------------------------------------------------
 
 	/** Hebrew + (integer month) */
 	Hebrew operator + (Hebrew const& dt, detail::packaged_month_integer const& month);

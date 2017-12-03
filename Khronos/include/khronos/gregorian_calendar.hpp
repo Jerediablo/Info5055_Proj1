@@ -16,50 +16,45 @@ Khronos library 'Gregorian calendar' declarations.
 #include <type_traits>
 #include <string>
 
-
-
 namespace khronos {
 
 	// FUNCTIONS
 	// --------------------------------------------------------------------------------------
 
+	// Function declarations for hebrew-to-jd and jd-to-hebrew conversions (with and without times).
 	jd_t gregorian_to_jd(year_t year, month_t month, day_t day);
 	jd_t gregorian_to_jd(year_t year, month_t month, day_t day, hour_t hour, minute_t minute, second_t seconds);
 	void jd_to_gregorian(jd_t jd, year_t& year, month_t& month, day_t& day);
 	void jd_to_gregorian(jd_t jd, year_t& year, month_t& month, day_t& day, hour_t& hour, minute_t& minute, second_t& second);
 
+	// Function declaraction to check if a year is a leapyear.
 	bool is_gregorian_leapyear(year_t year);
 
-
-	/* UDL - converts a Gregorian year BCE to an astronomical Gregorian year. */
+	// UDL - converts a Gregorian year BCE to an astronomical Gregorian year.
 	constexpr year_t operator ""_BCE(unsigned long long gregorianYearBCE) { return -static_cast<long long>(gregorianYearBCE) + 1; }
 	constexpr year_t operator ""_bce(unsigned long long gregorianYearBCE) { return -static_cast<long long>(gregorianYearBCE) + 1; }
 	constexpr year_t operator ""_CE(unsigned long long gregorianYearCE) { return static_cast<long long>(gregorianYearCE); }
 	constexpr year_t operator ""_ce(unsigned long long gregorianYearCE) { return static_cast<long long>(gregorianYearCE); }
 
-	/** Provide the number of days in the month of the Gregorian Calendar. */
+	// Provide the number of days in the month of the Gregorian Calendar.
 	inline day_t gregorian_days_in_month(month_t month, bool isLeapYear) {
 		return civil::days_in_month(month, isLeapYear);
 	}
 
-
-	/** Provide the name of the given month in the Gregorian calendar. */
+	// Provide the name of the given month in the Gregorian calendar. 
 	inline char const * gregorian_month_name(month_t month) {
 		return civil::month_name_long(month);
 	}
 
-
-	/** Provide the short name of the given month in the Gregorian calendar. */
+	// Provide the short name of the given month in the Gregorian calendar. 
 	inline char const * gregorian_short_month_name(month_t month) {
 		return civil::month_name_short(month);
 	}
 
-
-
 	// CLASSES
 	// --------------------------------------------------------------------------------------
 
-	/**	Proleptic Gregorian Calendar Date class. */
+	//	Proleptic Gregorian Calendar Date class.
 	class Gregorian {
 		year_t		year_ = 1;
 		month_t		month_ = 1;
@@ -128,7 +123,7 @@ namespace khronos {
 		}
 
 
-		// block some operators
+		// Block some operators.
 	private:
 		Gregorian operator + (detail::packaged_year_real const&);
 		Gregorian operator - (detail::packaged_year_real const&);
@@ -136,10 +131,8 @@ namespace khronos {
 		Gregorian operator - (detail::packaged_month_real const&);
 	};
 
-
-
 	// OPERATORS
-	// ====================
+	// --------------------------------------------------------------------------------------
 
 	/** Gregorian + (integer month) */
 	Gregorian operator + (Gregorian const& dt, detail::packaged_month_integer const& month);

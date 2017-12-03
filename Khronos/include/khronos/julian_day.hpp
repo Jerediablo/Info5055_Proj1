@@ -13,9 +13,6 @@ Date:		October 21, 2017
 
 namespace khronos {
 
-
-
-
 	/** Convert a Julian date to a Julian day number. */
 	inline jdn_t jd_to_jdn(jd_t jd) {
 		return static_cast<jdn_t>(floor(jd + 0.5));
